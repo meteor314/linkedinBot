@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "install": "^0.13.0",
+    "linkedin-private-api": "^1.1.1",
+    "nodejs": "^0.0.0",
+    "nodemon": "^2.0.12",
+    "npm": "^7.24.0"
+  }
+}
