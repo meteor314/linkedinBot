@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
 from selenium.common.exceptions import InvalidSessionIdException
-#********** LOG IN *************
+
 options = Options()
 options.add_argument("--user-data-dir=/home/meteor314/.config/google-chrome/Profile 1") #you need to change the profile path (you cand find this on chrome://version/ )
 chrome_path = r"/home/meteor314/Desktop/linkedin_bot/connectAuto/chromedriver"
@@ -15,7 +15,6 @@ driver.get('https://www.linkedin.com')
 time.sleep(2)
 
 
-#***************** ADD CONTACTS ***********************
 
 driver.get("https://www.linkedin.com/search/results/people/?network=%5B%22S%22%5D&origin=FACETED_SEARCH&page=3")
 time.sleep(2)
