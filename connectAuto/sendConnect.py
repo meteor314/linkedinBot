@@ -5,11 +5,11 @@ import time
 from selenium.common.exceptions import InvalidSessionIdException
 
 options = Options()
-options.add_argument("--user-data-dir=/home/meteor314/.config/google-chrome/Profile 1") #you need to change the profile path (you cand find this on chrome://version/ )
-chrome_path = r"/home/meteor314/Desktop/linkedin_bot/connectAuto/chromedriver"
+options.add_argument("--user-data-dir=/home/kali/.config/google-chrome/Profile 1") #you need to change the profile path (you cand find this on chrome://version/ )
+chrome_path = r"./chromedriver"
 options.page_load_strategy = 'normal'
 
-driver = webdriver.Chrome(chrome_path, options=options)
+driver = webdriver.Chrome(chrome_path, chrome_options=options)
 
 driver.get('https://www.linkedin.com')
 time.sleep(2)
