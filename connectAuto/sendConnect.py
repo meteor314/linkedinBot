@@ -14,6 +14,23 @@ driver = webdriver.Chrome(chrome_path, chrome_options=options)
 driver.get('https://www.linkedin.com')
 time.sleep(2)
 
+driver.get('https://linkedin.com')
+
+
+cookie = driver.get_cookie("spectroscopyId") #if we have this cookies that means user s are already connected !
+if(not cookie): #void
+    driver.execute_script("alert('Please connect and restart the program')");
+    #print(len(cookies))
+    driver.get('https://www.linkedin.com/login/fr?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin')
+    driver.sleep(60)
+
+else:
+    driver.get('https://www.linkedin.com/mynetwork/invitation-manager/sent/')
+    driver.maximize_window()
+    time.sleep(3)
+
+
+
 
 
 driver.get("https://www.linkedin.com/search/results/people/?network=%5B%22S%22%5D&origin=FACETED_SEARCH&page=3")
