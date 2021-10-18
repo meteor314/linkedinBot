@@ -19,11 +19,10 @@ cookie = driver.get_cookie("spectroscopyId") #if we have this cookies that means
 if(not cookie): #void
     driver.execute_script("alert('Please connect and restart the program')");
     #print(len(cookies))
-<<<<<<< HEAD
+
     driver.get('https://www.linkedin.com/login/fr?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin')
-=======
+
     driver.get('linkedin.com/login')
->>>>>>> 0be4ce395084b647512e014557557370041bdd8d
     driver.sleep(60)
 
 else:
