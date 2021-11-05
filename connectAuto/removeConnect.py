@@ -2,28 +2,39 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
-import numpy as np
-from selenium.common.exceptions import InvalidSessionIdException
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 options = Options()
 #options.add_argument('--profile-directory=Profile 1')
-options.add_argument("--user-data-dir=/home/kali/.config/google-chrome/Profile 1") #you need to change the profile path (you cand find this on chrome://version/ )
-chrome_path = r"./chromedriver"
+options.add_argument("/home/meteor/.config/google-chrome/Default") #you need to change the profile path (you cand find this on chrome://version/ )
+#chrome_path = r"linkedinBot/connectAuto/chromedriver"
 options.page_load_strategy = 'normal'
 
-driver = webdriver.Chrome(chrome_path, options=options)
+
+
+
+s=Service(ChromeDriverManager().install())
+#google-chrome
+driver = webdriver.Chrome(service=s)
+driver.get("https://linkedin.com")
+#firefox
+#driver = webdriver.Firefox()
+# Google Chrome
+
+#driver = webdriver.Chrome(chrome_path, options=options)
 
 driver.get('https://linkedin.com')
 
 
-cookie = driver.get_cookie("spectroscopyId") #if we have this cookies that means user s are already connected !
-if(not cookie): #void
+cookies = driver.get_cookie("spectroscopyId") #if we have this cookies that means user s are already connected !
+if(not cookies): #void
     driver.execute_script("alert('Please connect and restart the program')");
     #print(len(cookies))
 
-    driver.get('https://www.linkedin.com/login/fr?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin')
+    #driver.get('https://www.linkedin.com/login/fr')
 
-    driver.get('linkedin.com/login')
-    driver.sleep(60)
+    # driver.get('linkedin.com/login')
+    time.sleep(60)
 
 else:
     driver.get('https://www.linkedin.com/mynetwork/invitation-manager/sent/')
